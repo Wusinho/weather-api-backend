@@ -1,4 +1,5 @@
 class WeatherSerializer < ActiveModel::Serializer
   has_one :location
-  attributes :date, :temperature
+  has_many :temperatures
+  attributes :date
 end
