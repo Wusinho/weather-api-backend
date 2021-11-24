@@ -16,6 +16,10 @@ class WeathersController < ApplicationController
     end
 
   end
+  
+  def erase
+    
+  end
 
   private
 
