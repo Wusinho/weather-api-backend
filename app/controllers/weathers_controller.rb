@@ -21,11 +21,7 @@ class WeathersController < ApplicationController
 
   def weather_params
     weather_params = params.permit(:date, location: [:lat, :lon, :city, :state] )
-    # weather_params = params.require(:weather).permit(:date, :temperature )
-
-    # weather_params = params.require(:author).permit(:name, books: [:title] )
     weather_params[:location_attributes] = weather_params.delete :location
-    # weather_params[:temperatures_attributes] = weather_params.delete :temperature
     weather_params.permit!
   end
 
