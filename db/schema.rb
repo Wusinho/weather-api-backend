@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2021_11_24_143633) do
 
   create_table "locations", force: :cascade do |t|
-    t.integer "lat"
-    t.integer "lon"
+    t.float "lat"
+    t.float "lon"
     t.string "city"
     t.string "state"
     t.integer "weather_id", null: false
