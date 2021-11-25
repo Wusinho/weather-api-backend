@@ -15,11 +15,11 @@ class Weather < ApplicationRecord
     date = params['date']
     lat = params['lat']
     lon = params['lon']
-    
+    # byebug
     if date
-      where('date = ?', date[1..-2])
+      where('date = ?', date[1..-2]).order('weather_index ASC')
     elsif lat && lon
-      joins(:location).where('lat = ? AND lon = ?', lat[1..-2], lon[1..-2])
+      order('weather_index ASC').joins(:location).where('lat = ? AND lon = ?', lat[1..-2], lon[1..-2])
     end
   end
 
