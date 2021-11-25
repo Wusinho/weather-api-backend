@@ -2,15 +2,15 @@ class WeathersController < ApplicationController
   include WeatherHelper # to include the helpers
   def index
     @weathers = Weather.search(params)
-    render json: @weathers
+    render json: @weathers, status: :ok
   end
 
   def create
-    @weather = Weather.create!( weather_params)
+    @weather = Weather.new( weather_params)
     @weather.update(weather_index: params['id'])
     return unless @weather
     # byebug
-    if @weather.valid?
+    if @weather.save
       extract_create_temperatures(params[:temperature], @weather.id)
       render json: @weather
     end
@@ -24,9 +24,7 @@ class WeathersController < ApplicationController
       params['lat'],
       params['lon']
     )
-
-    return Weather.destroy_all if params.keys.count < 4
-    @weather.destroy_all
+    @weather.empty? ? Weather.destroy_all : @weather.destroy_all
 
     render json: {
       status: :ok
