@@ -6,17 +6,21 @@ class WeathersController < ApplicationController
       params['lon'],
       params['lat'],
     )
+    return render json: { error: 'Error on search'}, status: :not_found if @weathers.nil? 
+
     render json: @weathers, status: :ok
+    
   end
 
   def create
     @weather = Weather.new( weather_params)
     @weather.update(weather_index: params['id'])
-    return unless @weather
-    # byebug
+
     if @weather.save
       extract_create_temperatures(params[:temperature], @weather.id)
-      render json: @weather
+      render json: @weather, status: :created
+    else
+      render json: {error: 'Error creating'}, status: :bad_request
     end
 
   end
