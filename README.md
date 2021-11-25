@@ -65,11 +65,6 @@ Contributions, issues, and feature requests are welcome!
 
 Give a star if you :star: like this project!
 
-## Acknowledgments
-
-- Microverse
-- Unsplash
-
 ## 📝 License
 
 This project is [MIT](LICENSE) licensed.
