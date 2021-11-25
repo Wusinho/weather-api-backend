@@ -20,6 +20,8 @@ class Weather < ApplicationRecord
       where('date = ?', date[1..-2]).order('weather_index ASC')
     elsif lat && lon
       order('weather_index ASC').joins(:location).where('lat = ? AND lon = ?', lat[1..-2], lon[1..-2])
+    else
+      Weather.all
     end
   end
 

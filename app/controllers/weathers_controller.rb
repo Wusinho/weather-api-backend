@@ -30,9 +30,8 @@ class WeathersController < ApplicationController
     )
     @weather.empty? ? Weather.destroy_all : @weather.destroy_all
 
-    render json: {
-      status: :ok
-    }
+    render json: {message: 'Erased'}, status: :ok
+    
   end
 
   private
