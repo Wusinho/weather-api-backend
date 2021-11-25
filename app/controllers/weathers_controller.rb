@@ -1,7 +1,11 @@
 class WeathersController < ApplicationController
   include WeatherHelper # to include the helpers
   def index
-    @weathers = Weather.search(params)
+    @weathers = Weather.search(
+      params['date'],
+      params['lon'],
+      params['lat'],
+    )
     render json: @weathers, status: :ok
   end
 
