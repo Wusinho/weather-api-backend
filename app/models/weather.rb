@@ -10,11 +10,16 @@ class Weather < ApplicationRecord
     where('date BETWEEN ? AND ?', start, last).joins(:location).where('lat = ? AND lon = ?', lat, lon)
   end
 
-  def self.search(date, lon, lat)
+  def self.search(params)
+
+    date = params['date']
+    lat = params['lat']
+    lon = params['lon']
+    
     if date
-      where('date = ?', date).sort('weather_index')
-    elsif lon && lat
-      .sort('weather_index').joins(:location).where('lat = ? AND lon = ?', lat, lon)
+      where('date = ?', date[1..-2])
+    elsif lat && lon
+      joins(:location).where('lat = ? AND lon = ?', lat[1..-2], lon[1..-2])
     end
   end
 
