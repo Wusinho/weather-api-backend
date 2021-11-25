@@ -50,8 +50,6 @@ The REST service should implement the following functionalities:
 
 - To run the tests `npm run test`
 
-![image](./src/assets/Tests.png)
-
 ## Author
 
 👤 **Heber Lazo**
