@@ -42,13 +42,11 @@ The REST service should implement the following functionalities:
 ## How to start the project from your Local environment
 
 - Open your terminal and cd where you want to store the project
-- Run the following command - `git clone https://github.com/Wusinho/React-Redux-Catalogue.git `
-- Cd into the directory - `cd React-Redux-Catalogue`
+- Run the following command - `git clone https://github.com/Wusinho/weather-api-backend `
+- Cd into the directory - `cd weather-api-backend `
 - Run `bundle install`
-- To run the pogram type `npm run dev` on your terminal.
-- By default it will open in google-chrome however you can configure `./config/webpack.dev` to open it another browser.
-
-- To run the tests `npm run test`
+  `Enjoy`
+- To run the tests `rspec`
 
 ## Author
 
