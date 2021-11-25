@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_24_152856) do
+ActiveRecord::Schema.define(version: 2021_11_25_022339) do
 
   create_table "locations", force: :cascade do |t|
     t.float "lat"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2021_11_24_152856) do
     t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "weather_index"
   end
 
   add_foreign_key "locations", "weathers"

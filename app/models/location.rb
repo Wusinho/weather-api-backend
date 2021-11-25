@@ -4,4 +4,5 @@ class Location < ApplicationRecord
   validates :lon, presence: true
   validates :city, presence: true
   validates :state, presence: true
+
 end
